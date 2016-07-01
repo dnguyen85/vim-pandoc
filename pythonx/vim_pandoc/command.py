@@ -297,7 +297,7 @@ class PandocCommand(object):
                 vim.command("setlocal wrap")
                 vim.command("setlocal linebreak")
                 vim.current.buffer[0] = "# Press q to close this"
-                vim.current.buffer.append("▶ " + self._run_command)
+                vim.current.buffer.append("% " + self._run_command)
                 vim.command("normal! G")
                 if vim.eval('filereadable("pandoc.out")') == '1':
                     vim.command("silent r pandoc.out")
@@ -307,7 +307,7 @@ class PandocCommand(object):
                 vim.command("map <buffer> q :bd<cr>")
                 # we will highlight some elements in the buffer
                 vim.command("syn match PandocOutputMarks /^>>/")
-                vim.command("syn match PandocCommand /^▶.*$/hs=s+1")
+                vim.command("syn match PandocCommand /^%.*$/hs=s+1")
                 vim.command("syn match PandocInstructions /^#.*$/")
                 vim.command("hi! link PandocOutputMarks Operator")
                 vim.command("hi! link PandocCommand Statement")
